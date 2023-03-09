@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.apollographql.apollo3.api.Optional
 import com.apollographql.apollo3.exception.ApolloException
+import com.example.rocket.LaunchListQuery
 import com.example.rocketreserver.databinding.LaunchListFragmentBinding
 import kotlinx.coroutines.channels.Channel
 
@@ -72,7 +73,7 @@ class LaunchListFragment : Fragment() {
 
         adapter.onItemClicked = { launch ->
             findNavController().navigate(
-                LaunchListFragmentDirections.openLaunchDetails(launchId = launch.id)
+                LaunchListFragmentDirections.openLaunchDetails(launchId = launch.launchFragment.id)
             )
         }
     }

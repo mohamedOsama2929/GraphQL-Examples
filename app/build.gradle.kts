@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("androidx.navigation.safeargs.kotlin")
-    id("com.apollographql.apollo3").version("3.7.3")
 }
 
 android {
@@ -10,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.rocketreserver"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -34,6 +33,10 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 dependencies {
+    implementation("com.apollographql.apollo3:apollo-runtime:3.7.4")
+  //  apolloMetadata(project(":schema"))
+    api(project(":schema"))
+    api(project(":feature"))
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -50,11 +53,4 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
 
-    implementation("com.apollographql.apollo3:apollo-runtime")
-}
-
-apollo {
-    service("service") {
-        packageName.set("com.example.rocketreserver")
-    }
 }

@@ -1,0 +1,22 @@
+query LaunchListQuery($cursor: String) {
+  launches(after: $cursor) {
+    cursor
+    hasMore
+    launches {
+    ...launchFragments
+    }
+  }
+}
+
+# Declaration of named fragment
+
+fragment launchFragments on Launch {
+  id
+  site
+  mission {
+    name
+    missionPatch(size: SMALL)
+  }
+}
+
+

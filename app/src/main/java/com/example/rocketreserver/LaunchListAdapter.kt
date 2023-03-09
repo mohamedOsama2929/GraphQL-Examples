@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.rocket.LaunchListQuery
 import com.example.rocketreserver.databinding.LaunchItemBinding
 
 class LaunchListAdapter(private val launches: List<LaunchListQuery.Launch>) :
@@ -25,9 +26,9 @@ class LaunchListAdapter(private val launches: List<LaunchListQuery.Launch>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val launch = launches[position]
-        holder.binding.site.text = launch.site ?: ""
-        holder.binding.missionName.text = launch.mission?.name
-        holder.binding.missionPatch.load(launch.mission?.missionPatch) {
+        holder.binding.site.text = launch.launchFragment?.site ?: ""
+        holder.binding.missionName.text = launch.launchFragment?.mission?.name
+        holder.binding.missionPatch.load(launch.launchFragment?.mission?.missionPatch) {
             placeholder(R.drawable.ic_placeholder)
         }
 

@@ -3,6 +3,7 @@ package com.example.rocketreserver
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.rocket.TripsBookedSubscription
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect

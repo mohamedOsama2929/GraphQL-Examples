@@ -7,3 +7,6 @@ pluginManagement {
         mavenCentral()
     }
 }
+include(":schema")
+include(":feature")
+include(":featuretwo")

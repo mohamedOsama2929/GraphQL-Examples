@@ -1,0 +1,10 @@
+mutation CancelTripMutation($id:ID!) {
+  cancelTrip(launchId: $id) {
+    success
+    message
+    launches {
+      id
+      site
+    }
+  }
+}
